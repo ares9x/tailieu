@@ -1,0 +1,28 @@
+﻿{name post head}
+<div class="content_movie">
+<div id="text_content">
+<div class="content_description" style="position: relative;">
+<img alt="anh" src="http://onlinemovies.pro/wp-content/uploads/2014/05/Resident-Evil-Retribution-20121.jpg" height="170px" title="anh" width="200px" />
+<br />
+<h1 style=" color: #FFF; display: block; height: 38px; line-height: 0; ">{name post movie}</h1>
+</div>
+<div class="n_description" style="max-width:600px;">
+<p style="">
+	{description}
+</p>
+</div>
+</div>
+<div style="clear: both; margin-bottom: 20px;">
+<a id="click_show_movie" href="#" style="background-color: #888888; display: block; heigth: 40px; padding: 2px; text-align: center;  width: 130px;margin: 0 800px;"> Go To Movie </a>
+</div>
+<div id="title_movie" style="height: 32px; line-height: 32px; display: none; text-align: right;"><h1>{name post movie}</h1></div>
+<div class="movie_play" style="display: none; position: relative;">
+<div id="movie_content">
+<iframe allowfullscreen="" frameborder="0" height="450" src="https://www.youtube.com/embed/{id video}" width="700"></iframe>
+</div>
+<div id="ads_skip" style="position: absolute; top: 0;">
+</div>
+<div id="num_skip" style="bottom: 64px; display: none; position: absolute; right: 130px;">
+<a href="#" id="skip_to_movie" style="background-color: #14d2ea; color: white; display: block; font-size: 24px; height: 55px; line-height: 55px; text-indent: 50px; width: 180px;"> 5s </a> </div>
+</div>
+</div>
